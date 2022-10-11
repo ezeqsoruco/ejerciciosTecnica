@@ -176,3 +176,118 @@ function numPerfectosN(numero) {
     console.log("EL VALOR INGRESADO NO ES UN NÚMERO");
   }
 }
+
+function dibujo(op) {
+  switch (op) {
+    case 1:
+      cuadrado();
+      break;
+    case 2:
+      cuadradoHueco();
+      break;
+    case 3:
+      tableroAjedrez();
+      break;
+    case 4:
+      piramideIzq();
+      break;
+    case 5:
+      diamante();
+      break;
+    case 6:
+      piramideInv();
+      break;
+    case 7:
+      piramideCentrada();
+      break;
+  }
+}
+
+function cuadrado() {
+  const fila = 5;
+
+  for (let index = 0; index < fila; index++) {
+    document.write("*****");
+    document.write("<br>");
+  }
+}
+
+function cuadradoHueco() {
+  const fila = 5;
+
+  for (let index = 0; index < 2; index++) {
+    document.write("*****");
+    document.write("<br>");
+    if (index === 0) {
+      for (let index = 0; index < fila - 2; index++) {
+        document.write("*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*");
+        document.write("<br>");
+      }
+    }
+  }
+}
+
+function tableroAjedrez() {
+  const fila = 7;
+
+  for (let index = 0; index < (fila - 1) / 2; index++) {
+    document.write("********");
+    document.write("<br>");
+    document.write("&nbsp;*******");
+    document.write("<br>");
+  }
+  document.write("********");
+}
+
+function piramideIzq() {
+  const fila = 5;
+  let imprimir = "*";
+  for (let index = 0; index < fila; index++) {
+    document.write(imprimir);
+    document.write("<br>");
+    imprimir = imprimir + "*";
+  }
+}
+
+function diamante() {
+  const fila = 5;
+  let imprimir = "*";
+  for (let index = 0; index < fila; index++) {
+    document.write(imprimir);
+    document.write("<br>");
+    imprimir = imprimir + "*";
+  }
+
+  for (let index = 0; index < imprimir.length - 1; index++) {
+    document.write(imprimir.slice(0, imprimir.length - (index + 1)));
+    document.write("<br>");
+  }
+}
+
+function piramideInv() {
+  const cant = 9;
+  let imprimir = "*";
+
+  for (let index = 0; index < cant; index++) {
+    imprimir = imprimir + "*";
+  }
+
+  for (let index = 0; index < imprimir.length; index++) {
+    document.write(imprimir.slice(0, imprimir.length - (index + 1)));
+    document.write("<br>");
+  }
+}
+
+function piramideCentrada() {
+  const cant = 9;
+  let imprimir = "*";
+  let fila = (cant + 1) / 2;
+  let repeat = fila;
+  console.log(fila);
+  for (let index = 0; index < repeat; index++) {
+    document.write("&nbsp;".repeat(fila * 2) + imprimir);
+    document.write("<br>");
+    imprimir = "**" + imprimir;
+    fila--;
+  }
+}
